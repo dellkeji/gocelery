@@ -190,7 +190,9 @@ type ResultMessage struct {
 }
 
 func (rm *ResultMessage) reset() {
-	rm.Result = nil
+	if rm != nil {
+		rm.Result = nil
+	}
 }
 
 var resultMessagePool = sync.Pool{
