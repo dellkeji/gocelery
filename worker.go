@@ -63,7 +63,7 @@ func (w *CeleryWorker) StartWorkerWithContext(ctx context.Context) {
 						continue
 					}
 					if resultMsg == nil {
-						log.Printf("result message %s if null", taskMessage.ID)
+						log.Printf("result message %s is null", taskMessage.ID)
 						continue
 					}
 					defer releaseResultMessage(resultMsg)
