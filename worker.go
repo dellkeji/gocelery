@@ -62,6 +62,10 @@ func (w *CeleryWorker) StartWorkerWithContext(ctx context.Context) {
 						log.Printf("failed to run task message %s: %+v", taskMessage.ID, err)
 						continue
 					}
+					if resultMsg == nil {
+						log.Printf("result message %s if null", taskMessage.ID)
+						continue
+					}
 					defer releaseResultMessage(resultMsg)
 
 					// push result to backend
